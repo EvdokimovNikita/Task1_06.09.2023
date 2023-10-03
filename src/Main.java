@@ -1,18 +1,14 @@
 public class Main {
+    //1) Развернуть строку задом на перёд
     public static void main(String[] args) {
         String testString = "1,5,9,3";
-        char[] testArray = testString.toCharArray();
-        System.out.println(testArray);
-        int leghtArray = testArray.length;
-        int numberOfOperation = leghtArray/2;
-        int i = 0;
-        int j = leghtArray-1;
-        for (i=0; i<=numberOfOperation; i++){
-            char saver = testArray[i];
-            testArray[i]=testArray[j];
-            testArray[j]= saver;
-            j--;
+        char[] characters = testString.toCharArray();
+        int halfLength = characters.length / 2;
+        for (int i = 0; i < halfLength; i++) {
+            char tmp = characters[i];
+            characters[i] = characters[characters.length - i - 1];
+            characters[characters.length - i - 1] = tmp;
         }
-        System.out.println(testArray);
+        System.out.print(characters);
     }
 }
